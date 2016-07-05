@@ -1,0 +1,32 @@
+{
+  "name": "enpii-core",
+  "authors": [
+    "Lac <lac.phan@enpii.com>"
+  ],
+  "description": "packages for Enpii Core plugin",
+  "main": "bower",
+  "moduleType": [],
+  "license": "enpii",
+  "homepage": "",
+  "private": true,
+  "directory" : "assets",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "4.0.0-alpha",
+    "bxslider-4" : "~4.2.5",
+    "detectizr" : "~2.2.0",
+    "imagesloaded" : "~4.1.0",
+    "jquery-colorbox" : "~1.6.3",
+    "owl.carousel": "~2.0.0-beta.3",
+    "packery": "~2.0.0",
+    "slick-carousel": "~1.5.9",
+    "font-awesome": "~4.4.0",
+    "jquery.cookie": "~1.4.1"
+  }
+}

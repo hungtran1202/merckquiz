@@ -1,0 +1,117 @@
+.site-header {
+  .main-logo {
+    text-align: left;
+    padding-top: 10px;
+    img{
+      max-width: 100%;
+      height: auto;
+      @include respond-to-custom-size(768px, 1023px){
+        max-width: 250px;
+      }
+    }
+    @include respond-to-custom-size(0, 767px) {
+      padding-left: 5px;
+      img {
+        max-width: 250px;
+        height: auto;
+      }
+    }
+    @include respond-to-custom-size(null, 480px){
+      text-align: center;
+    }
+  }
+  .search-form {
+    float: right;
+    margin-top: 10px;
+    padding-left: 30px;
+    min-width: 46px;
+    min-height: 34px;
+    position: relative;
+    @include respond-to-custom-size(null, 768px) {
+      margin-top: 0;
+      padding-bottom: 20px;
+      float: right;
+      width: 25%;
+      text-align: right;
+      padding-left: 0;
+      padding-top: 10px;
+    }
+    &--inner {
+      position: absolute;
+      width: 64px;
+      height: 34px;
+      top: 0;
+      right: 0;
+      overflow: hidden;
+      @include respond-to-custom-size(null, 1023px) {
+        position: relative;
+        border: 1px solid #8a8a8a;
+        border-radius: 10px;
+        width: auto;
+      }
+      @include respond-to-custom-size(null, 768px) {
+        text-align: center;
+      }
+    }
+    input[type=text] {
+      display: inline-block;
+      border: 0;
+      padding: 5px 15px;
+      height: 30px;
+      background: transparent;
+      width: 0;
+      @include place-holder() {
+        font-style: italic;
+        font-weight: 400;
+        font-family: 'Raleway', sans-serif;
+      }
+    }
+    span {
+      background: transparent;
+      border: 0;
+      font-size: 16px;
+      line-height: 30px;
+      color: #080f31;
+      display: inline-block;
+      padding: 0;
+      vertical-align: top;
+    }
+    span:focus, input[type=text]:focus {
+      outline: none;
+    }
+  }
+
+  $menu-selector: '.main-navigation';
+  $bg-color: transparent;
+  $link-color: inherit;
+  $link-hover-color: inherit;
+  $active-color: $link-hover-color;
+  $break-point: 1024;
+  @include horizontal-resp-nav-menu($menu-selector, $bg-color, $link-color, $link-hover-color, $active-color, $break-point) {
+    #{$menu-selector} {
+      // your custom style sheet
+
+      margin-top: 62px;
+      margin-left: 10px;
+      @include respond-to-custom-size(null, 991px) {
+        margin-top: 0;
+      }
+      //.navbar-default .navbar-nav {
+      //  li {
+      //    a {
+      //      color: #182b64;
+      //      font-family: 'Montserrat', sans-serif;
+      //      font-size: 16px;
+      //      text-transform: uppercase;
+      //      padding: 0 35px;
+      //      font-weight: 400;
+      //      &:hover {
+      //        color: #60c080;
+      //      }
+      //    }
+      //  }
+      //}
+    }
+  }
+;
+}
