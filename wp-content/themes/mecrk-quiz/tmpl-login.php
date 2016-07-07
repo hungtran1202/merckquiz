@@ -58,7 +58,7 @@ $login = isset($_REQUEST['login']) ? $_REQUEST['login'] : '';
             </div>
             <div class="modal-footer c-no-border">
                 <span class="c-text-account"><?php echo __("Don't Have An Account Yet", _NP_TEXT_DOMAIN)?> ?</span>
-                <a href="javascript:;" data-toggle="modal"
+                <a href="<?php echo site_url('/sign-up')?>" data-toggle="modal"
                    class="btn c-btn-dark-1 btn c-btn-uppercase c-btn-bold c-btn-slim c-btn-border-2x c-btn-square c-btn-signup">Signup!</a>
             </div>
         </div>

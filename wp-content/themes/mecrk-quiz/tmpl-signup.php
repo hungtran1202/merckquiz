@@ -20,7 +20,7 @@ $login = isset($_REQUEST['login']) ? $_REQUEST['login'] : '';
                 <p><?php echo __("Let's make today a great day!", _NP_TEXT_DOMAIN)?></p>
 
                 <div class="message-signup alert hidden"></div>
-                <form name="signup" id="signup" method="post" class="signup">
+                <form name="signup" id="signup2" method="post" class="signup">
                     <div class="form-group">
                         <label for="email" class="hide">Email *</label>
                         <input name="email" type="email" class="form-control input-lg c-square" id="email"

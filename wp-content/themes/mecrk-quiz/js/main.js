@@ -23,35 +23,35 @@ function loadScript() {
     document.body.appendChild(script);
 }
 
-function render_map( $el ) {
-    (function( $ ) {
+function render_map($el) {
+    (function ($) {
         // var
         var $markers = $el.find('.marker');
 
 
         // vars
         var args = {
-            zoom		: 16,
-            center		: new google.maps.LatLng(0, 0),
-            mapTypeId	: google.maps.MapTypeId.ROADMAP
+            zoom: 16,
+            center: new google.maps.LatLng(0, 0),
+            mapTypeId: google.maps.MapTypeId.ROADMAP
         };
 
         // create map
-        var map = new google.maps.Map( $el[0], args);
+        var map = new google.maps.Map($el[0], args);
 
         // add a markers reference
         map.markers = [];
 
         // add markers
-        $markers.each(function(){
+        $markers.each(function () {
 
-            add_marker( $(this), map );
+            add_marker($(this), map);
 
         });
 
         // center map
-        center_map( map );
-    })( jQuery );
+        center_map(map);
+    })(jQuery);
 
 }
 
@@ -69,36 +69,35 @@ function render_map( $el ) {
  *  @return	n/a
  */
 
-function add_marker( $marker, map ) {
-    (function( $ ) {
+function add_marker($marker, map) {
+    (function ($) {
         // var
-        var latlng = new google.maps.LatLng( $marker.attr('data-lat'), $marker.attr('data-lng') );
+        var latlng = new google.maps.LatLng($marker.attr('data-lat'), $marker.attr('data-lng'));
 
         // create marker
         var marker = new google.maps.Marker({
-            position	: latlng,
-            map			: map
+            position: latlng,
+            map: map
         });
 
         // add to array
-        map.markers.push( marker );
+        map.markers.push(marker);
 
         // if marker contains HTML, add it to an infoWindow
-        if( $marker.html() )
-        {
+        if ($marker.html()) {
             // create info window
             var infowindow = new google.maps.InfoWindow({
-                content		: $marker.html()
+                content: $marker.html()
             });
 
             // show info window when marker is clicked
-            google.maps.event.addListener(marker, 'click', function() {
+            google.maps.event.addListener(marker, 'click', function () {
 
-                infowindow.open( map, marker );
+                infowindow.open(map, marker);
 
             });
         }
-    })( jQuery );
+    })(jQuery);
 }
 
 /*
@@ -114,68 +113,65 @@ function add_marker( $marker, map ) {
  *  @return	n/a
  */
 
-function center_map( map ) {
-    (function( $ ) {
+function center_map(map) {
+    (function ($) {
 
         // vars
         var bounds = new google.maps.LatLngBounds();
 
 
         // loop through all markers and create bounds
-        $.each( map.markers, function( i, marker ){
+        $.each(map.markers, function (i, marker) {
 
-            var latlng = new google.maps.LatLng( marker.position.lat(), marker.position.lng() );
+            var latlng = new google.maps.LatLng(marker.position.lat(), marker.position.lng());
 
-            bounds.extend( latlng );
+            bounds.extend(latlng);
 
         });
 
         // only 1 marker?
-        if( map.markers.length == 1 )
-        {
+        if (map.markers.length == 1) {
             // set center of map
-            map.setCenter( bounds.getCenter() );
-            map.setZoom( 16 );
+            map.setCenter(bounds.getCenter());
+            map.setZoom(16);
         }
-        else
-        {
+        else {
             // fit to bounds
-            map.fitBounds( bounds );
+            map.fitBounds(bounds);
         }
-    })( jQuery );
+    })(jQuery);
 
 }
 
 /* Keep webapp not go to safari */
-if(("standalone" in window.navigator) && window.navigator.standalone){
+if (("standalone" in window.navigator) && window.navigator.standalone) {
 
     var noddy, remotes = false;
 
-    document.addEventListener('click', function(event) {
+    document.addEventListener('click', function (event) {
 
         noddy = event.target;
 
-        while(noddy.nodeName !== "A" && noddy.nodeName !== "HTML") {
+        while (noddy.nodeName !== "A" && noddy.nodeName !== "HTML") {
             noddy = noddy.parentNode;
         }
 
-        if('href' in noddy && noddy.href.indexOf('http') !== -1 && (noddy.href.indexOf(document.location.host) !== -1 || remotes))
-        {
+        if ('href' in noddy && noddy.href.indexOf('http') !== -1 && (noddy.href.indexOf(document.location.host) !== -1 || remotes)) {
             event.preventDefault();
             document.location.href = noddy.href;
         }
 
-    },false);
+    }, false);
 }
 
-jQuery(document).ready(function(){
-    (function( $ ) {
+jQuery(document).ready(function () {
+    (function ($) {
 
-        $('#menu-primary-menu > li').hover(function(){
+        $('#menu-primary-menu > li').hover(function () {
             if ($(this).find('ul').length > 0) {
                 $(this).parent().addClass('mouse-over');
             }
-        }, function(){
+        }, function () {
             $(this).parent().removeClass('mouse-over');
         });
 
@@ -186,7 +182,7 @@ jQuery(document).ready(function(){
         $('#site-navigation li.dropdown i.fa').on('click', function () {
             var current_clicked = $(this);
             var current_menu_item = $(this).parent();
-            if(current_clicked.hasClass('fa-chevron-down')){
+            if (current_clicked.hasClass('fa-chevron-down')) {
                 current_clicked.toggleClass('fa-chevron-down').toggleClass('fa-chevron-right');
             }
             $('ul.dropdown-menu.collapse.in', current_menu_item.parent()).collapse('hide');
@@ -203,14 +199,14 @@ jQuery(document).ready(function(){
             preventDefaultSwipeX: true,
             preventDefaultSwipeY: false,
             mode: 'horizontal',
-            onSliderLoad: function(currentIndex){
+            onSliderLoad: function (currentIndex) {
             }
         });
 //
 
 
-        $('.acf-map').each(function(){
-            render_map( $(this) );
+        $('.acf-map').each(function () {
+            render_map($(this));
         });
 //
 //        $(".colorbox-frame").colorbox({iframe:true, width:"80%", height:"80%"});
@@ -220,114 +216,114 @@ jQuery(document).ready(function(){
         $('#owlcarousels').owlCarousel({
 
             // Most important owl features
-            items : 2,
-            itemsCustom : false,
-            itemsDesktop : [1199,2],
-            itemsDesktopSmall : [992,2],
-            itemsTablet: [768,2],
-            itemsTabletSmall:  [480,2],
-            itemsMobile : [320,1],
-            singleItem : false,
-            itemsScaleUp : false,
+            items: 2,
+            itemsCustom: false,
+            itemsDesktop: [1199, 2],
+            itemsDesktopSmall: [992, 2],
+            itemsTablet: [768, 2],
+            itemsTabletSmall: [480, 2],
+            itemsMobile: [320, 1],
+            singleItem: false,
+            itemsScaleUp: false,
 
             //Basic Speeds
-            slideSpeed : 200,
-            paginationSpeed : 800,
-            rewindSpeed : 1000,
+            slideSpeed: 200,
+            paginationSpeed: 800,
+            rewindSpeed: 1000,
 
             //Autoplay
-            autoPlay : false,
-            stopOnHover : false,
+            autoPlay: false,
+            stopOnHover: false,
 
             // Navigation
-            navigation : false,
-            navigationText : ["<",">"],
-            rewindNav : true,
-            scrollPerPage : false,
+            navigation: false,
+            navigationText: ["<", ">"],
+            rewindNav: true,
+            scrollPerPage: false,
 
             //Pagination
-            pagination : true,
+            pagination: true,
             paginationNumbers: false,
 
             // Responsive
             responsive: true,
-            responsiveRefreshRate : 200,
+            responsiveRefreshRate: 200,
             responsiveBaseWidth: window,
 
             // CSS Styles
-            baseClass : "owl-carousel",
-            theme : "owl-theme",
+            baseClass: "owl-carousel",
+            theme: "owl-theme",
 
             //Lazy load
-            lazyLoad : true,
-            lazyFollow : true,
-            lazyEffect : "fade",
+            lazyLoad: true,
+            lazyFollow: true,
+            lazyEffect: "fade",
 
             //Auto height
-            autoHeight : false,
-            autoWidth:true,
+            autoHeight: false,
+            autoWidth: true,
 
             //JSON
-            jsonPath : false,
-            jsonSuccess : false,
+            jsonPath: false,
+            jsonSuccess: false,
 
             //Mouse Events
-            dragBeforeAnimFinish : true,
-            mouseDrag : true,
-            touchDrag : true,
+            dragBeforeAnimFinish: true,
+            mouseDrag: true,
+            touchDrag: true,
 
             //Transitions
-            transitionStyle : false,
+            transitionStyle: false,
 
             // Other
-            addClassActive : false,
+            addClassActive: false,
 
             //Callbacks
-            beforeUpdate : false,
-            afterUpdate : false,
-            beforeInit:function(currentIndex){
+            beforeUpdate: false,
+            afterUpdate: false,
+            beforeInit: function (currentIndex) {
                 $('.slider-residence').removeClass('loading-slider');
             },
             afterInit: false,
             beforeMove: false,
             afterMove: false,
             afterAction: false,
-            startDragging : false,
-            afterLazyLoad : false,
+            startDragging: false,
+            afterLazyLoad: false,
 
         }).data('owlCarousel');
 
 
-    })( jQuery );
-    jQuery.validator.addMethod("noSpace", function(value, element) {
-            return value.indexOf(" ") < 0 && value != "";
-        },"No space please and don't leave it empty");
-
-        $(".signup").validate({
-        rules: {
-            username: {
-                required: true,
-                minlength: 6,
-                noSpace: true
+    })(jQuery);
+    jQuery.validator.addMethod("noSpace", function (value, element) {
+        return value.indexOf(" ") < 0 && value != "";
+    }, "No space please and don't leave it empty");
+    $('.c-btn-login').click(function () {
+        $(this).closest('form').validate({
+            rules: {
+                username: {
+                    required: true,
+                    minlength: 6,
+                    noSpace: true
+                },
+                email: {
+                    required: true,
+                    email: true
+                },
+                fullname: {
+                    required: true,
+                },
+                password: {
+                    required: true,
+                    minlength: 6
+                },
+                confirmPassword: {
+                    required: true,
+                    minlength: 6,
+                    equalTo: ".password"
+                }
             },
-            email: {
-                required: true,
-                email: true
-            },
-            fullname: {
-                required: true,
-            },
-            password: {
-                required: true,
-                minlength: 6
-            },
-            confirmPassword: {
-                required: true,
-                minlength: 6,
-                equalTo: ".password"
-            }
-        },
-            submitHandler: function(form) {
+            submitHandler: function (form) {
                 $.ajax({
                     url: ajaxurl,
                     type: 'POST',
@@ -337,11 +333,11 @@ jQuery(document).ready(function(){
                         form: $(form).serialize()
                     },
                     success: function (data) {
-                        if(data.code==1){
+                        if (data.code == 1) {
                             $('.message-signup').addClass('alert-success').html('Successfully !').removeClass('hidden');
                             $('.signup').resetForm();
                         }
-                        else{
+                        else {
                             $('.message-signup').addClass('alert-danger').html(data.message).removeClass('hidden');
                         }
                     },
@@ -350,6 +346,9 @@ jQuery(document).ready(function(){
                     }
                 });
             }
+        });
+
     });
+
 
 });
