@@ -54,7 +54,7 @@ $login = isset($_REQUEST['login']) ? $_REQUEST['login'] : '';
                     </div>
                     <div class="form-group">
                         <button type="submit"
-                                class="btn c-theme-btn btn-md c-btn-uppercase c-btn-bold c-btn-square c-btn-login">
+                                class="btn c-theme-btn btn-md c-btn-uppercase c-btn-bold c-btn-square c-btn-login btn-signup">
                             <?php echo __('Signup', _NP_TEXT_DOMAIN)?>
                         </button>
                         <a href="<?php echo site_url('/login')?>" class="c-btn-forgot"

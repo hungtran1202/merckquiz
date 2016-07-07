@@ -298,7 +298,7 @@ jQuery(document).ready(function () {
     jQuery.validator.addMethod("noSpace", function (value, element) {
         return value.indexOf(" ") < 0 && value != "";
     }, "No space please and don't leave it empty");
-    $('.c-btn-login').click(function () {
+    $('.btn-signup').click(function () {
         $(this).closest('form').validate({
             rules: {
                 username: {
