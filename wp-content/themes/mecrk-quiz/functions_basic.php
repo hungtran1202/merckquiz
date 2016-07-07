@@ -129,7 +129,7 @@ function enpii_body_classes( $classes ) {
     if ( ! is_singular() ) {
         $classes[] = 'hfeed';
     }
-
+    $classes[]= 'login';
     return $classes;
 }
 add_filter( 'body_class', 'enpii_body_classes' );
@@ -300,7 +300,7 @@ if (!function_exists('enpii_scripts')) {
         if(defined('_ENPII_CORE')) {
             NpWp::useAddOn(array(
                 'font-awesome',
-                'bootstrap-js',
+//                'bootstrap-js',
                 'bx-slider',
                 'detect-izr',
                 'color-box',
@@ -354,12 +354,12 @@ if (!function_exists('enpii_scripts')) {
 
 
         if (_NP_TEMPLATE_URL != _NP_CHILD_TEMPLATE_URL) {
-            wp_enqueue_style('bootstrap_base-child', _NP_CHILD_TEMPLATE_URL . '/css/bootstrap_base.css', array(), _NP_THEME_VERSION);
+//            wp_enqueue_style('bootstrap_base-child', _NP_CHILD_TEMPLATE_URL . '/css/bootstrap_base.css', array(), _NP_THEME_VERSION);
 //            wp_enqueue_style('font-css', _NP_CHILD_TEMPLATE_URL . '/css/font.css', array(), _NP_THEME_VERSION);
             wp_enqueue_style('style-child', _NP_CHILD_TEMPLATE_URL . '/css/main.css', array(), _NP_THEME_VERSION);
             wp_enqueue_style('style-custom-child', _NP_CHILD_TEMPLATE_URL . '/css/custom.css', array(), _NP_THEME_VERSION);
         } else {
-            wp_enqueue_style('bootstrap_base', _NP_TEMPLATE_URL . '/css/bootstrap_base.css', array(), _NP_THEME_VERSION);
+//            wp_enqueue_style('bootstrap_base', _NP_TEMPLATE_URL . '/css/bootstrap_base.css', array(), _NP_THEME_VERSION);
 //            wp_enqueue_style('font-css', _NP_TEMPLATE_URL . '/css/font.css', array(), _NP_THEME_VERSION);
             wp_enqueue_style('style-parent', _NP_TEMPLATE_URL . '/css/main.css', array(), _NP_THEME_VERSION);
             wp_enqueue_style('style-custom', _NP_TEMPLATE_URL . '/css/custom.css', array(), _NP_THEME_VERSION);
@@ -372,6 +372,7 @@ if (!function_exists('enpii_scripts')) {
         } else {
             wp_enqueue_script('modernizr',  _NP_TEMPLATE_URL . '/js/modernizr.js', array(), _NP_THEME_VERSION, true);
             wp_enqueue_script('detectizr',  _NP_TEMPLATE_URL . '/js/detectizr.js', array(), _NP_THEME_VERSION, true);
+            wp_enqueue_script('validate',  _NP_TEMPLATE_URL . '/js/jquery.validate.js', array(), _NP_THEME_VERSION, true);
             wp_enqueue_script('main',  _NP_TEMPLATE_URL . '/js/main.js', array(), _NP_THEME_VERSION, true);
         }
 

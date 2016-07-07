@@ -153,3 +153,23 @@
     }
   }
 }
+body{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+a{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  color: #1e1e1e;
+}
+label {
+  font-weight: 400;
+  font-size: 14px;
+}
+.error{
+  color: #a94442;
+}
+.match{
+  color: #3c763d;
+}
