@@ -40,6 +40,7 @@ class NpWp
                 'labels' => $labels,
                 'public' => true,
                 'publicly_queryable' => true,
+                'taxonomies' => array( 'questionnaire'),
                 'show_ui' => true,
                 'show_in_nav_menus' => true,
                 'query_var' => true,

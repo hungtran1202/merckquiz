@@ -1,0 +1,49 @@
+.question-name {
+  font-size: 16px;
+  color: #000;
+  padding-bottom: 10px;
+}
+
+.answer {
+  padding: 15px 0;
+  .answer-item {
+    display: inline-block;
+    position: relative;
+    input{
+      position: absolute;
+      left: 14px;
+    }
+    label{
+      padding-left: 25px;
+    }
+  }
+}
+
+body.single {
+  position: relative;
+}
+
+.jconfirm {
+  position: absolute;
+  .jconfirm-bg {
+    position: absolute;
+  }
+  .jconfirm-scrollpane {
+    position: absolute;
+    height: 160px;
+    margin: auto;
+  }
+}
+
+.jconfirm-box {
+  margin: 0 !important;
+}
+
+.header-single {
+  .c-brand {
+    position: relative;
+    @include respond-to-custom-size(992px, null) {
+      width: 100%;
+    }
+  }
+}

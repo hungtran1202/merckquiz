@@ -1,0 +1,109 @@
+.c-layout-header {
+  .c-brand {
+    @include respond-to-custom-size(992px){
+      margin: 24px 0;
+    }
+    @include respond-to-custom-size(null, 768px){
+      margin: 20px 15px;
+      padding: 4px 0;
+    }
+    img{
+      max-width: 180px;
+      height: auto;
+      @include respond-to-custom-size(769px, 992px){
+        max-width: 140px;
+      }
+      @include respond-to-custom-size(null, 768px){
+        max-width: 110px;
+        margin-top: 3px;
+      }
+    }
+  }
+  .c-navbar{
+    @include respond-to-custom-size(null,991px){
+      height: auto;
+    }
+  }
+}
+.c-layout-header.c-layout-header-default-mobile .c-brand > .c-hor-nav-toggler{
+  @include respond-to-custom-size(769px, 991px){
+    top: 6px;
+  }
+  @include respond-to-custom-size(null,768px){
+    top: 4px;
+  }
+}
+.c-brand > .c-cart-toggler.signin-rp{
+  @include respond-to-custom-size(769px, 992px){
+    padding-top: 2px;
+    padding-left: 14px;
+  }
+  @include respond-to-custom-size(null, 768px){
+    padding-top: 0;
+    padding-left: 14px;
+  }
+}
+.btn-sign-in{
+  float: right;
+  padding-top: 34px;
+  @include respond-to-custom-size(null, 992px){
+    display: none;
+  }
+}
+.user-menu{
+  h3{
+    padding: 8px 25px;
+    white-space: normal;
+    letter-spacing: 1px;
+    color: #fff;
+  }
+  ul{
+    background: transparent;
+    box-shadow: none;
+    position: relative;
+    padding: 0;
+    width: 100%;
+    li{
+      &.c-active{
+        a{
+          background: #f5f5f5;
+          color: #262626;
+        }
+      }
+      a{
+        padding: 8px 25px;
+        white-space: normal;
+        letter-spacing: 1px;
+        color: #acb4bd;
+      }
+    }
+  }
+  .list-questionnaire-dropdown{
+    li.questionnaire{
+      position: relative;
+      list-style: none;
+      &:hover{
+        a{
+          background: #f5f5f5;
+          color: #262626;
+        }
+      }
+      a{
+        display: block;
+        color: #acb4bd;
+        background: transparent;
+        padding: 8px 25px 8px 35px;
+      }
+    }
+  }
+}
+.time-remaining{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  @include respond-to-custom-size(null, 768px){
+    top: 0;
+  }
+}
