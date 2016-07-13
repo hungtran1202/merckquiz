@@ -80,7 +80,10 @@ $termId = $obj->term_id;
                                                        class="btn btn-sm btn-result c-theme-btn">
                                                         <?php echo __('View Result', _NP_TEXT_DOMAIN) ?>
                                                     </a>
-
+                                                    <a href="<?php echo site_url('/contest') ?>"
+                                                       class="btn btn-sm btn-result c-theme-btn">
+                                                        <?php echo __('Go To Home', _NP_TEXT_DOMAIN) ?>
+                                                    </a>
                                                     <?php
                                                 }
                                                 ?>
@@ -94,6 +97,10 @@ $termId = $obj->term_id;
                                                 <a href="<?php echo get_permalink($report['notVisit']) ?>"
                                                    class="btn btn-sm btn-result c-theme-btn">
                                                     <?php echo __('Resume Contest', _NP_TEXT_DOMAIN) ?>
+                                                </a>
+                                                <a  href="<?php echo site_url('/contest') ?>"
+                                                   class="btn btn-sm btn-result c-theme-btn">
+                                                    <?php echo __('Go To Home', _NP_TEXT_DOMAIN) ?>
                                                 </a>
                                             </div>
                                         </div>
@@ -109,6 +116,10 @@ $termId = $obj->term_id;
                                                     class="btn btn-sm c-theme-btn c-btn-square c-btn-uppercase c-btn-bold btn-start">
                                                 <?php echo __('Start', _NP_TEXT_DOMAIN) ?>
                                             </button>
+                                            <a href="<?php echo site_url('/contest') ?>"
+                                               class="btn btn-sm c-theme-btn c-btn-square c-btn-uppercase c-btn-bold">
+                                                <?php echo __('Go To Home', _NP_TEXT_DOMAIN) ?>
+                                            </a>
                                         </div>
                                     </div>
                                 <?php } ?>

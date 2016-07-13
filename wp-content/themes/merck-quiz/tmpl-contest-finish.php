@@ -37,7 +37,7 @@ if (empty($contestId) || empty($questionnaire)) {
                                 <?php
                             }
                             ?>
-                            <a target="_blank" href="<?php echo site_url('/contest') ?>"
+                            <a href="<?php echo site_url('/contest') ?>"
                                class="btn btn-sm c-theme-btn c-btn-square c-btn-uppercase c-btn-bold">
                                 <?php echo __('Go To Home', _NP_TEXT_DOMAIN) ?>
                             </a>
