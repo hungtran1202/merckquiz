@@ -173,6 +173,9 @@ function merckquiz_checkAnswer($argAnswer,$id){
     return $result;
 }
 
+/**
+ * change password
+ */
 add_action('wp_ajax_ajaxChangePassword', 'merckquiz_ajaxChangePassword');
 add_action('wp_ajax_nopriv_ajaxChangePassword', 'merckquiz_ajaxChangePassword');
 function merckquiz_ajaxChangePassword(){
@@ -188,6 +191,31 @@ function merckquiz_ajaxChangePassword(){
     }
     else{
         $result['message']= __('Old Password not correct.', _NP_TEXT_DOMAIN);
+    }
+    echo json_encode($result);
+    exit;
+}
+
+/**
+ * change profile
+ */
+add_action('wp_ajax_ajaxChangeProfile', 'merckquiz_ajaxChangeProfile');
+add_action('wp_ajax_nopriv_ajaxChangeProfile', 'merckquiz_ajaxChangeProfile');
+function merckquiz_ajaxChangeProfile(){
+    $result['code'] = 0;
+    $obj = $_POST['form'];
+    parse_str($obj, $output);
+    $name = $output['fullname'];
+    $phone = $output['phone'];
+    $user_id = get_current_user_id();
+    update_field('phone',$phone, 'user_'.$user_id);
+
+    $user_id = wp_update_user( array( 'ID' => $user_id, 'display_name' => $name ) );
+
+    if ( is_wp_error( $user_id ) ) {
+        $result['message'] = $user_id->get_error_message();
+    } else {
+        $result['code']=1;
     }
     echo json_encode($result);
     exit;

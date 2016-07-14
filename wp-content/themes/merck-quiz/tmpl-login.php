@@ -7,6 +7,7 @@
  * Time: 3:15 PM
  */
 get_header();
+merckquiz_redirectIsLogged();
 $checkemail = isset($_REQUEST['checkemail']) ? $_REQUEST['checkemail'] : '';
 $login = isset($_REQUEST['login']) ? $_REQUEST['login'] : '';
 ?>

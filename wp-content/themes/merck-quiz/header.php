@@ -169,15 +169,15 @@
                     <nav
                         class="c-mega-menu c-pull-right c-mega-menu-dark c-mega-menu-dark-mobile c-fonts-uppercase c-fonts-bold">
                         <ul class="nav navbar-nav c-theme-nav">
-                            <li class="c-active">
+                            <li class="home  <?php echo (get_the_ID()==2?'c-active': '')?>">
                                 <a href="<?php echo home_url() ?>" class="c-link dropdown-toggle">Home
                                 </a>
                             </li>
-                            <li class="c-menu-type-classic">
+                            <li class="about <?php echo (get_the_ID()==37?'c-active': '')?>">
                                 <a href="<?php echo site_url('/about') ?>" class="c-link dropdown-toggle">About
                                 </a>
                             </li>
-                            <li>
+                            <li class="contact-us <?php echo (get_the_ID()==39?'c-active': '')?>">
                                 <a href="<?php echo site_url('/contact-us') ?>" class="c-link dropdown-toggle">Contact
                                     Us
                                 </a>
@@ -375,13 +375,13 @@
             <h3><?php echo $current_user->display_name; ?></h3>
                 <ul class="dropdown-menu c-menu-type-inline" style="display: block; top: auto;">
                     <li>
-                        <a href="<?php echo site_url('wp-admin/profile.php')?>"><?php echo __('My Profile', _NP_TEXT_DOMAIN)?></a>
+                        <a href="<?php echo site_url('/profile')?>"><?php echo __('My Profile', _NP_TEXT_DOMAIN)?></a>
                     </li>
-                    <li>
+                    <li class="<?php echo (get_the_ID()==134?'c-active': '')?>">
                         <a href="<?php echo get_permalink(134)?>"><?php echo __('Change Password', _NP_TEXT_DOMAIN)?></a>
                     </li>
-                    <li class="c-active">
-                        <a href="<?php echo site_url('/contest')?>"><?php echo __('Contests', _NP_TEXT_DOMAIN)?></a>
+                    <li class="">
+                        <a ><?php echo __('Your Contests', _NP_TEXT_DOMAIN)?></a>
                         <ul class="list-questionnaire-dropdown">
                             <?php merckquiz_questionnaire();?>
                         </ul>

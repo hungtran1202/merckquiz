@@ -15,7 +15,7 @@
 			<div class="row">
 				<div class="col-md-6 col-sm-12 c-col">
 					<p class="c-copyright c-font-grey"><?php echo date('Y')?> &copy; Mecrk Quiz.
-						<span class="c-font-grey-3"><?php echo __('All Rights Reserved.', _NP_TEXT_DOMAIN)?></span>
+						<span class="c-font-grey-3"><?php echo get_field('footer_text', 'option')?></span>
 					</p>
 				</div>
 			</div>

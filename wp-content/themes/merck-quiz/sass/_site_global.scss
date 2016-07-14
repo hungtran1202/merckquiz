@@ -179,3 +179,10 @@ label {
 .btn-result{
   margin-top: 20px;
 }
+$header : 100;
+$footer: 98;
+.c-layout-page{
+  @include respond-to-custom-size(991px, null){
+    min-height: calc(100vh - 200px);
+  }
+}

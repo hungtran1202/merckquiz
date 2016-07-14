@@ -469,4 +469,27 @@ jQuery(document).ready(function () {
             });
         }
     });
+    $('.form-change-profile').submit(function(e){
+        form = $(this).serialize();
+        $.ajax({
+            url: ajaxurl,
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                action: 'ajaxChangeProfile',
+                form: form
+            },
+            success: function (data) {
+                if (data.code == 1) {
+
+                    $('.message-signup').addClass('alert-success').html('Successfully !').removeClass('hidden');
+                    $('.signup').resetForm();
+                }
+                else {
+                    $('.message-signup').addClass('alert-danger').html(data.message).removeClass('hidden');
+                }
+            }
+        });
+        e.preventDefault();
+    });
 });

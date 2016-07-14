@@ -2580,6 +2580,13 @@ label {
   margin-top: 20px;
 }
 
+@media only screen and (min-width: 991px) {
+  .c-layout-page {
+    min-height: -webkit-calc(100vh - 200px);
+    min-height: calc(100vh - 200px);
+  }
+}
+
 @media only screen and (min-width: 992px) {
   .c-layout-header .c-brand {
     margin: 24px 0;

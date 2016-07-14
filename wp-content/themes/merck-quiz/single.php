@@ -6,6 +6,7 @@
  * Time: 3:15 PM
  */
 get_header('single');
+wp_reset_query();
 $contestID = isset($_SESSION['contest-' . get_current_user_id()]) ? $_SESSION['contest-' . get_current_user_id()] : '';
 $id = get_the_ID();
 $itemCurrent = '';
@@ -67,6 +68,7 @@ $termName = get_term($termId, 'questionnaire')->name;
                                 <input name="orderCurrent" type="hidden" value="<?php echo $orderCurrent ?>">
 
                                 <div class="question-name"><?php echo ($orderCurrent + 1) . '. ' . $question ?></div>
+                                <div class="question-image"><?php echo get_the_content()?></div>
                                 <div class="answer">
                                     <div class="row">
                                         <?php

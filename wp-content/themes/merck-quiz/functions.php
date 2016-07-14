@@ -56,6 +56,15 @@ function merckquiz_customSidebarBackend()
             #wp-admin-bar-wp-logo, #toplevel_page_wpcf7, #menu-posts, #menu-media, #menu-pages, #menu-appearance, #menu-comments, #menu-tools, #menu-settings, #toplevel_page_edit-post_type-acf-field-group, #toplevel_page_w3tc_dashboard, #wp-admin-bar-w3tc, #wp-admin-bar-new-content, #wp-admin-bar-comments {
                 display: none;
             }
+            #your-profile p+h2+.form-table{
+                display: none;
+            }
+            #your-profile p+h2+.form-table+h2{
+                display: none;
+            }
+            #your-profile .form-table .user-role-wrap{
+                display: none;
+            }
         </style>
         <?php
     endif;
@@ -197,6 +206,8 @@ function merckquiz_generatePDF($id, $qustionnaireId)
             $i++;
             $argContestAnswer = json_decode($item['answer']);
             $checkAnswer = merckquiz_checkAnswer($argContestAnswer, $item['id']);
+            $argAnswer = get_field('repeater_of_answers', $item['id']);
+            $content = get_the_content($item['id']);
             $strContent .= '<tr>';
             if ($checkAnswer) {
                 $strContent .= '<td width="30"><img src="' . _NP_TEMPLATE_URL . '/img/checked.png' . '" alt="" width="20px"></td>';
@@ -204,8 +215,8 @@ function merckquiz_generatePDF($id, $qustionnaireId)
                 $strContent .= '<td width="30"><img src="' . _NP_TEMPLATE_URL . '/img/flase.png' . '" alt="" width="20px"></td>';
             }
             $strContent .= '<td width="600">';
-            $strContent .= '<h3 class="answerCorrect"><i>' . $i . '. </i>' . $item['question'] . '</h3>';
-            $argAnswer = get_field('repeater_of_answers', $item['id']);
+            $strContent .= '<h3 class="question-name"><i>' . $i . '. </i>' . $item['question'] . '</h3>';
+            $strContent .= '<h3 class="question-content">' . $content. '</h3>';
             $strContent .= '</td>';
             $strContent .= '</tr>';
             $strContent .= '<tr>';
@@ -437,6 +448,22 @@ function merckquiz_countAnswerCorrect($questionId){
         $countAnswer[]=$item['correct'];
     }
     return $countAnswer;
+}
+
+/**
+ * @param null $url
+ */
+function merckquiz_redirectIsLogged($url=null){
+    if(is_user_logged_in()){
+        if($url== null){
+            wp_redirect(home_url());
+            exit();
+        }
+        else{
+            wp_redirect($url);
+            exit();
+        }
+    }
 }
 ?>
 
