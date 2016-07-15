@@ -65,6 +65,9 @@ function merckquiz_customSidebarBackend()
             #your-profile .form-table .user-role-wrap{
                 display: none;
             }
+            .pw-weak+tr+.form-field{
+                display: none;
+            }
         </style>
         <?php
     endif;
