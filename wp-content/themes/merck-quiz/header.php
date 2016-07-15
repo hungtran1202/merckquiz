@@ -322,7 +322,7 @@
 
                 <form name="loginform" id="loginform" action="<?php echo site_url('/wp-login.php') ?>" method="post">
                     <div class="form-group">
-                        <label for="user_login" class="hide"><?php echo __('Email', _NP_TEXT_DOMAIN)?></label>
+                        <label for="user_login" class="hide"><?php echo __('Username', _NP_TEXT_DOMAIN)?></label>
                         <input name="log" type="text" class="form-control input-lg c-square" id="user_login"
                                placeholder="<?php echo __('Username', _NP_TEXT_DOMAIN)?>">
                     </div>

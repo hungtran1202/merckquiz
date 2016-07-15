@@ -215,8 +215,12 @@ function merckquiz_generatePDF($id, $qustionnaireId)
                 $strContent .= '<td width="30"><img src="' . _NP_TEMPLATE_URL . '/img/flase.png' . '" alt="" width="20px"></td>';
             }
             $strContent .= '<td width="600">';
-            $strContent .= '<h3 class="question-name"><i>' . $i . '. </i>' . $item['question'] . '</h3>';
-            $strContent .= '<h3 class="question-content">' . $content. '</h3>';
+            if(!empty($content)){
+                $strContent .= '<h3 class="question-name"><i>' . $i . '. </i>' .$content . '</h3>';
+            }
+            else{
+                $strContent .= '<h3 class="question-name"><i>' . $i . '. </i>' . $item['question'] . '</h3>';
+            }
             $strContent .= '</td>';
             $strContent .= '</tr>';
             $strContent .= '<tr>';

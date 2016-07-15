@@ -30,21 +30,21 @@ $login = isset($_REQUEST['login']) ? $_REQUEST['login'] : '';
                 ?>
                 <form name="loginform" id="loginform" action="<?php echo site_url('/wp-login.php') ?>" method="post">
                     <div class="form-group">
-                        <label for="user_login" class="hide">Email</label>
+                        <label for="user_login" class="hide"><?php echo __('Username', _NP_TEXT_DOMAIN)?></label>
                         <input name="log" type="text" class="form-control input-lg c-square" id="user_login"
-                               placeholder="Username">
+                               placeholder="<?php echo __('Username', _NP_TEXT_DOMAIN)?>">
                     </div>
                     <div class="form-group">
-                        <label for="user_pass" class="hide">Password</label>
+                        <label for="user_pass" class="hide"><?php echo __('Password', _NP_TEXT_DOMAIN)?></label>
                         <input name="pwd" type="password" class="form-control input-lg c-square" id="user_pass"
-                               placeholder="Password"></div>
+                               placeholder="<?php echo __('Password', _NP_TEXT_DOMAIN)?>"></div>
                     <div class="form-group">
                         <div class="c-checkbox">
                             <input name="rememberme" type="checkbox" id="rememberme" class="c-check" value="forever">
                             <label for="rememberme" class="c-font-thin c-font-17">
                                 <span></span>
                                 <span class="check"></span>
-                                <span class="box"></span> Remember Me </label>
+                                <span class="box"></span><?php echo __('Remember Me', _NP_TEXT_DOMAIN)?></label>
                         </div>
                     </div>
                     <div class="form-group">
@@ -52,7 +52,7 @@ $login = isset($_REQUEST['login']) ? $_REQUEST['login'] : '';
                                 class="btn c-theme-btn btn-md c-btn-uppercase c-btn-bold c-btn-square c-btn-login">Login
                         </button>
                         <a href="<?php echo site_url('/lost-password')?>"
-                           data-dismiss="modal" class="c-btn-forgot">Forgot Your Password ?</a>
+                           data-dismiss="modal" class="c-btn-forgot"><?php echo __('Forgot Your Password ?', _NP_TEXT_DOMAIN)?></a>
                     </div>
                     <div class="clearfix"></div>
                 </form>
@@ -60,7 +60,7 @@ $login = isset($_REQUEST['login']) ? $_REQUEST['login'] : '';
             <div class="modal-footer c-no-border">
                 <span class="c-text-account"><?php echo __("Don't Have An Account Yet", _NP_TEXT_DOMAIN)?> ?</span>
                 <a href="<?php echo site_url('/sign-up')?>" data-toggle="modal"
-                   class="btn c-btn-dark-1 btn c-btn-uppercase c-btn-bold c-btn-slim c-btn-border-2x c-btn-square c-btn-signup">Signup!</a>
+                   class="btn c-btn-dark-1 btn c-btn-uppercase c-btn-bold c-btn-slim c-btn-border-2x c-btn-square c-btn-signup"><?php echo __('Signup!', _NP_TEXT_DOMAIN)?></a>
             </div>
         </div>
     </div>

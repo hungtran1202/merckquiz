@@ -371,49 +371,49 @@ jQuery(document).ready(function () {
     });
 
     var singleQuestion = $('.time-remaining');
-    //if(singleQuestion.length>0){
-    //    if(timeEnd> timeCurrent){
-    //        var timeRemaining=timeEnd-timeCurrent;
-    //
-    //        var i=0;
-    //        function startTime() {
-    //            if(timeRemaining-i>0){
-    //                $('.time-remaining .remaining').html(timeRemaining-i);
-    //                var t = setTimeout(startTime, 1000);
-    //            }
-    //            else{
-    //                singleQuestion.html('<span>The End</span>');
-    //                $.alert({
-    //                    title: 'The End!',
-    //                    content: 'This question is timeout, please click to the continue question!',
-    //                    confirmButton: 'continue',
-    //                    confirm: function(){
-    //                        $('.form-contest').submit();
-    //                    }
-    //                });
-    //                setTimeout(function(){
-    //                    $('.form-contest').submit();
-    //                }, 4000);
-    //            }
-    //            i++;
-    //        }
-    //        startTime();
-    //    }
-    //    else{
-    //        singleQuestion.html('<span>The End</span>');
-    //        $.alert({
-    //            title: 'The End!',
-    //            content: 'This question is timeout, please click to the continue question!',
-    //            confirmButton: 'continue',
-    //            confirm: function(){
-    //                $('.form-contest').submit();
-    //            }
-    //        });
-    //        setTimeout(function(){
-    //            $('.form-contest').submit();
-    //        }, 4000);
-    //    }
-    //}
+    if(singleQuestion.length>0){
+        if(timeEnd> timeCurrent){
+            var timeRemaining=timeEnd-timeCurrent;
+
+            var i=0;
+            function startTime() {
+                if(timeRemaining-i>0){
+                    $('.time-remaining .remaining').html(timeRemaining-i);
+                    var t = setTimeout(startTime, 1000);
+                }
+                else{
+                    singleQuestion.html('<span>The End</span>');
+                    $.alert({
+                        title: 'The End!',
+                        content: 'This question is timeout, please click to the continue question!',
+                        confirmButton: 'continue',
+                        confirm: function(){
+                            $('.btn-next').click();
+                        }
+                    });
+                    setTimeout(function(){
+                        $('.btn-next').click();
+                    }, 4000);
+                }
+                i++;
+            }
+            startTime();
+        }
+        else{
+            singleQuestion.html('<span>The End</span>');
+            $.alert({
+                title: 'The End!',
+                content: 'This question is timeout, please click to the continue question!',
+                confirmButton: 'continue',
+                confirm: function(){
+                    $('.btn-next').click();
+                }
+            });
+            setTimeout(function(){
+                $('.btn-next').click();
+            }, 4000);
+        }
+    }
     $('.form-contest').submit(function (e) {
         var link = $(this).attr('data-next');
         var contestId = $(this).attr('data-contestId');

@@ -134,7 +134,7 @@ function merckquiz_ajaxContestSession()
         $contests[$orderCurrent]['correct']= true;
     }
     else{
-        $contests[$orderCurrent]['correct']= true;
+        $contests[$orderCurrent]['correct']= false;
     }
     update_field('field_578072ac4a137', $contests, $contestID);
     if(end($contests)['id']==$questionId){

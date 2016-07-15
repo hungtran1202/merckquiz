@@ -70,7 +70,7 @@ $termId = $obj->term_id;
                                     if ($report['status'] != 'pending') {
                                         ?>
                                         <div class="c-margin-t-30">
-                                            <?php echo __('You already joined the contest', _NP_TEXT_DOMAIN) ?>
+                                            <?php echo __('You have already completed the contest.', _NP_TEXT_DOMAIN) ?>
                                             <div class="form-group">
                                                 <?php
                                                 if ($viewResult == 'all') {

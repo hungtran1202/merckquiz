@@ -100,15 +100,25 @@ if ($nextKey != 0 && $finished['code']==1) {
                                 <input name="questionId" type="hidden" value="<?php echo $id ?>">
                                 <input name="orderCurrent" type="hidden" value="<?php echo $orderCurrent ?>">
 
-                                <div class="question-name"><?php echo ($orderCurrent + 1) . '. ' . $question ?></div>
-                                <div class="question-image"><?php echo get_the_content() ?></div>
+                                <?php
+                                if(!empty(get_the_content())){
+                                    ?>
+                                    <div class="question-name"><?php echo  '<span>'.($orderCurrent + 1).'.</span>'.get_the_content() ?></div>
+                                    <?php
+                                }
+                                else{
+                                    ?>
+                                    <div class="question-name"><?php echo  '<span>'.($orderCurrent + 1).'.</span>'.$question ?></div>
+                                    <?php
+                                }
+                                ?>
                                 <div class="answer">
                                     <div class="row">
                                         <?php
                                         if (merckquiz_countAnswerCorrect(get_the_ID()) > 1) {
                                             foreach ($answer as $key => $item) {
                                                 ?>
-                                                <div class="col-sm-6 answer-item">
+                                                <div class="col-sm-12 answer-item">
                                                     <input name="answer" type="radio" id="<?php echo $key ?>"
                                                            value="<?php echo $key ?>">
                                                     <label for="<?php echo $key ?>"><?php echo $item['name'] ?></label>
@@ -118,7 +128,7 @@ if ($nextKey != 0 && $finished['code']==1) {
                                         } else {
                                             foreach ($answer as $key => $item) {
                                                 ?>
-                                                <div class="col-sm-6 answer-item">
+                                                <div class="col-sm-12 answer-item">
                                                     <input name="answer[]" type="checkbox" id="<?php echo $key ?>"
                                                            value="<?php echo $key ?>">
                                                     <label for="<?php echo $key ?>"><?php echo $item['name'] ?></label>
