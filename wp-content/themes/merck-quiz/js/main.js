@@ -349,9 +349,9 @@ jQuery(document).ready(function () {
         });
 
     });
-    $('.btn-start').click(function(){
-       var randQuestion = $(this).attr('data-session');
-       var questionnaire = $(this).attr('data-questionnaire');
+    $('.btn-start').click(function () {
+        var randQuestion = $(this).attr('data-session');
+        var questionnaire = $(this).attr('data-questionnaire');
         $.ajax({
             url: ajaxurl,
             type: 'POST',
@@ -370,54 +370,53 @@ jQuery(document).ready(function () {
         });
     });
 
-    var singleQuestion =$('.time-remaining');
-    if(singleQuestion.length>0){
-        if(timeEnd> timeCurrent){
-            var timeRemaining=timeEnd-timeCurrent;
-
-            var i=0;
-            function startTime() {
-                if(timeRemaining-i>0){
-                    $('.time-remaining .remaining').html(timeRemaining-i);
-                    var t = setTimeout(startTime, 1000);
-                }
-                else{
-                    singleQuestion.html('<span>The End</span>');
-                    $.alert({
-                        title: 'The End!',
-                        content: 'This question is timeout, please click to the continue question!',
-                        confirmButton: 'continue',
-                        confirm: function(){
-                            $('.form-contest').submit();
-                        }
-                    });
-                    setTimeout(function(){
-                        $('.form-contest').submit();
-                    }, 4000);
-                }
-                i++;
-            }
-            startTime();
-        }
-        else{
-            singleQuestion.html('<span>The End</span>');
-            $.alert({
-                title: 'The End!',
-                content: 'This question is timeout, please click to the continue question!',
-                confirmButton: 'continue',
-                confirm: function(){
-                    $('.form-contest').submit();
-                }
-            });
-            setTimeout(function(){
-                $('.form-contest').submit();
-            }, 4000);
-        }
-    }
-    $('.form-contest').submit(function(e){
-        var link =$(this).attr('data-next');
-        var contestId =$(this).attr('data-contestId');
-        console.log('13');
+    var singleQuestion = $('.time-remaining');
+    //if(singleQuestion.length>0){
+    //    if(timeEnd> timeCurrent){
+    //        var timeRemaining=timeEnd-timeCurrent;
+    //
+    //        var i=0;
+    //        function startTime() {
+    //            if(timeRemaining-i>0){
+    //                $('.time-remaining .remaining').html(timeRemaining-i);
+    //                var t = setTimeout(startTime, 1000);
+    //            }
+    //            else{
+    //                singleQuestion.html('<span>The End</span>');
+    //                $.alert({
+    //                    title: 'The End!',
+    //                    content: 'This question is timeout, please click to the continue question!',
+    //                    confirmButton: 'continue',
+    //                    confirm: function(){
+    //                        $('.form-contest').submit();
+    //                    }
+    //                });
+    //                setTimeout(function(){
+    //                    $('.form-contest').submit();
+    //                }, 4000);
+    //            }
+    //            i++;
+    //        }
+    //        startTime();
+    //    }
+    //    else{
+    //        singleQuestion.html('<span>The End</span>');
+    //        $.alert({
+    //            title: 'The End!',
+    //            content: 'This question is timeout, please click to the continue question!',
+    //            confirmButton: 'continue',
+    //            confirm: function(){
+    //                $('.form-contest').submit();
+    //            }
+    //        });
+    //        setTimeout(function(){
+    //            $('.form-contest').submit();
+    //        }, 4000);
+    //    }
+    //}
+    $('.form-contest').submit(function (e) {
+        var link = $(this).attr('data-next');
+        var contestId = $(this).attr('data-contestId');
         $.ajax({
             url: ajaxurl,
             type: 'POST',
@@ -469,7 +468,7 @@ jQuery(document).ready(function () {
             });
         }
     });
-    $('.form-change-profile').submit(function(e){
+    $('.form-change-profile').submit(function (e) {
         form = $(this).serialize();
         $.ajax({
             url: ajaxurl,
@@ -492,4 +491,14 @@ jQuery(document).ready(function () {
         });
         e.preventDefault();
     });
+    //'Do you want to leave the page? You will lose result if you go back.'
+    if($('body.single').length>0){
+        $('.btn-next').click(function () {
+            $(window).unbind('beforeunload');
+        });
+
+        $(window).bind('beforeunload', function (e) {
+            return 'You will lose result if you go back.';
+        });
+    }
 });

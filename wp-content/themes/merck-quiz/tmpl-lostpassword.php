@@ -40,16 +40,16 @@ $login = isset($_REQUEST['login']) ? $_REQUEST['login'] : '';
                 ?>
                 <form name="lostpasswordform" id="lostpasswordform" action="<?php echo site_url('/wp-login.php?action=lostpassword')?>"  method="post">
                     <div class="form-group">
-                        <label for="user_login" class="hide">Email</label>
+                        <label for="user_login" class="hide"><?php echo __('Email *', _NP_TEXT_DOMAIN)?></label>
                         <input name="user_login" type="email" class="form-control input-lg c-square" id="user_login"
-                               placeholder="Email"></div>
+                               placeholder="<?php echo __('Email *', _NP_TEXT_DOMAIN)?>"></div>
                     <div class="form-group">
                         <button name="wp-submit" id="wp-submit" type="submit"
                                 class="btn c-theme-btn btn-md c-btn-uppercase c-btn-bold c-btn-square c-btn-login">
-                            Submit
+                            <?php echo __('Submit', _NP_TEXT_DOMAIN)?>
                         </button>
                         <a href="<?php echo site_url('/login')?>" class="c-btn-forgot"
-                           data-dismiss="modal">Back To Login</a>
+                           data-dismiss="modal"><?php echo __('Back To Login', _NP_TEXT_DOMAIN)?></a>
                     </div>
                 </form>
             </div>

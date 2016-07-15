@@ -68,7 +68,6 @@ $termId = $obj->term_id;
                                 $viewResult = get_field('view_result', 'questionnaire_' . $termId);
                                 if ($report['code'] == 1) {
                                     if ($report['status'] != 'pending') {
-                                        merckquiz_setSession($report['id']);
                                         ?>
                                         <div class="c-margin-t-30">
                                             <?php echo __('You already joined the contest', _NP_TEXT_DOMAIN) ?>
@@ -91,6 +90,7 @@ $termId = $obj->term_id;
                                         </div>
                                         <?php
                                     } else {
+                                        merckquiz_setSession($report['id']);
                                         ?>
                                         <div class="c-margin-t-30">
                                             <div class="form-group">

@@ -121,7 +121,7 @@
                             <div class="btn-sign-in-mb">
                                 <a href="javascript:;" data-toggle="modal" data-target="#login-form"
                                    class="c-btn-border-opacity-04 c-btn btn-no-focus c-btn-header btn btn-sm c-btn-border-1x c-btn-dark c-btn-circle c-btn-uppercase c-btn-sbold">
-                                    <i class="icon-user"></i> Sign In</a>
+                                    <i class="icon-user"></i><?php echo __('Sign In', _NP_TEXT_DOMAIN)?></a>
                             </div>
                             <?php
                         }
@@ -161,7 +161,7 @@
                         <div class="btn-sign-in">
                             <a href="javascript:;" data-toggle="modal" data-target="#login-form"
                                class="c-btn-border-opacity-04 c-btn btn-no-focus c-btn-header btn btn-sm c-btn-border-1x c-btn-dark c-btn-circle c-btn-uppercase c-btn-sbold">
-                                <i class="icon-user"></i> Sign In</a>
+                                <i class="icon-user"></i><?php echo __('Sign In', _NP_TEXT_DOMAIN)?></a>
                         </div>
                         <?php
                     }
@@ -170,16 +170,15 @@
                         class="c-mega-menu c-pull-right c-mega-menu-dark c-mega-menu-dark-mobile c-fonts-uppercase c-fonts-bold">
                         <ul class="nav navbar-nav c-theme-nav">
                             <li class="home  <?php echo (get_the_ID()==2?'c-active': '')?>">
-                                <a href="<?php echo home_url() ?>" class="c-link dropdown-toggle">Home
+                                <a href="<?php echo home_url() ?>" class="c-link dropdown-toggle"><?php echo __('Home', _NP_TEXT_DOMAIN)?>
                                 </a>
                             </li>
                             <li class="about <?php echo (get_the_ID()==37?'c-active': '')?>">
-                                <a href="<?php echo site_url('/about') ?>" class="c-link dropdown-toggle">About
+                                <a href="<?php echo site_url('/about') ?>" class="c-link dropdown-toggle"><?php echo __('About', _NP_TEXT_DOMAIN)?>
                                 </a>
                             </li>
                             <li class="contact-us <?php echo (get_the_ID()==39?'c-active': '')?>">
-                                <a href="<?php echo site_url('/contact-us') ?>" class="c-link dropdown-toggle">Contact
-                                    Us
+                                <a href="<?php echo site_url('/contact-us') ?>" class="c-link dropdown-toggle"><?php echo __('Contact Us', _NP_TEXT_DOMAIN)?>
                                 </a>
                                 <!-- END: MOBILE VERSION OF THE TAB MEGA MENU -->
                             </li>
@@ -203,16 +202,16 @@
                 </button>
             </div>
             <div class="modal-body">
-                <h3 class="c-font-24 c-font-sbold">Password Recovery</h3>
+                <h3 class="c-font-24 c-font-sbold"><?php echo __('Password Recovery', _NP_TEXT_DOMAIN)?></h3>
 
-                <p>To recover your password please fill in your email address</p>
+                <p><?php echo __('To recover your password please fill in your email address', _NP_TEXT_DOMAIN)?></p>
 
                 <form name="lostpasswordform" id="lostpasswordform"
                       action="<?php echo site_url('/wp-login.php?action=lostpassword') ?>" method="post">
                     <div class="form-group">
-                        <label for="user_login" class="hide">Email</label>
+                        <label for="user_login" class="hide"><?php echo __('Email *', _NP_TEXT_DOMAIN)?></label>
                         <input name="user_login" type="email" class="form-control input-lg c-square" id="user_login"
-                               placeholder="Email"></div>
+                               placeholder="<?php echo __('Email *', _NP_TEXT_DOMAIN)?>"></div>
                     <div class="form-group">
                         <button name="wp-submit" id="wp-submit" type="submit"
                                 class="btn c-theme-btn btn-md c-btn-uppercase c-btn-bold c-btn-square c-btn-login">
@@ -224,7 +223,7 @@
                 </form>
             </div>
             <div class="modal-footer c-no-border">
-                <span class="c-text-account">Don't Have An Account Yet ?</span>
+                <span class="c-text-account"><?php echo __("Don't Have An Account Yet ?", _NP_TEXT_DOMAIN)?></span>
                 <a href="javascript:;" data-toggle="modal" data-target="#signup-form" data-dismiss="modal"
                    class="btn c-btn-dark-1 btn c-btn-uppercase c-btn-bold c-btn-slim c-btn-border-2x c-btn-square c-btn-signup">Signup!</a>
             </div>
@@ -249,9 +248,9 @@
                 <div class="message-signup alert hidden"></div>
                 <form name="signup" id="signup" method="post" class="signup">
                     <div class="form-group">
-                        <label for="email" class="hide">Email *</label>
+                        <label for="email" class="hide"><?php echo __('Email *', _NP_TEXT_DOMAIN)?></label>
                         <input name="email" type="email" class="form-control input-lg c-square" id="email"
-                               placeholder="Email *">
+                               placeholder="<?php echo __('Email *', _NP_TEXT_DOMAIN)?>">
                     </div>
                     <div class="form-group">
                         <label for="signup-username"
@@ -323,21 +322,21 @@
 
                 <form name="loginform" id="loginform" action="<?php echo site_url('/wp-login.php') ?>" method="post">
                     <div class="form-group">
-                        <label for="user_login" class="hide">Email</label>
+                        <label for="user_login" class="hide"><?php echo __('Email', _NP_TEXT_DOMAIN)?></label>
                         <input name="log" type="text" class="form-control input-lg c-square" id="user_login"
-                               placeholder="Username">
+                               placeholder="<?php echo __('Username', _NP_TEXT_DOMAIN)?>">
                     </div>
                     <div class="form-group">
-                        <label for="user_pass" class="hide">Password</label>
+                        <label for="user_pass" class="hide"><?php echo __('Password', _NP_TEXT_DOMAIN)?></label>
                         <input name="pwd" type="password" class="form-control input-lg c-square" id="user_pass"
-                               placeholder="Password"></div>
+                               placeholder="<?php echo __('Password', _NP_TEXT_DOMAIN)?>"></div>
                     <div class="form-group">
                         <div class="c-checkbox">
                             <input name="rememberme" type="checkbox" id="rememberme" class="c-check" value="forever">
                             <label for="rememberme" class="c-font-thin c-font-17">
                                 <span></span>
                                 <span class="check"></span>
-                                <span class="box"></span> Remember Me </label>
+                                <span class="box"></span> <?php echo __('Remember Me', _NP_TEXT_DOMAIN)?> </label>
                         </div>
                     </div>
                     <div class="form-group">
@@ -345,15 +344,15 @@
                                 class="btn c-theme-btn btn-md c-btn-uppercase c-btn-bold c-btn-square c-btn-login">Login
                         </button>
                         <a href="javascript:;" data-toggle="modal" data-target="#forget-password-form"
-                           data-dismiss="modal" class="c-btn-forgot">Forgot Your Password ?</a>
+                           data-dismiss="modal" class="c-btn-forgot"><?php echo __('Forgot Your Password ?', _NP_TEXT_DOMAIN)?></a>
                     </div>
                     <div class="clearfix"></div>
                 </form>
             </div>
             <div class="modal-footer c-no-border">
-                <span class="c-text-account">Don't Have An Account Yet ?</span>
+                <span class="c-text-account"><?php echo __("Don't Have An Account Yet ?", _NP_TEXT_DOMAIN)?></span>
                 <a href="javascript:;" data-toggle="modal" data-target="#signup-form" data-dismiss="modal"
-                   class="btn c-btn-dark-1 btn c-btn-uppercase c-btn-bold c-btn-slim c-btn-border-2x c-btn-square c-btn-signup">Signup!</a>
+                   class="btn c-btn-dark-1 btn c-btn-uppercase c-btn-bold c-btn-slim c-btn-border-2x c-btn-square c-btn-signup"><?php echo __('Signup!', _NP_TEXT_DOMAIN)?></a>
             </div>
         </div>
     </div>

@@ -8,20 +8,37 @@
 get_header('single');
 wp_reset_query();
 $contestID = isset($_SESSION['contest-' . get_current_user_id()]) ? $_SESSION['contest-' . get_current_user_id()] : '';
+$strRandomQuestion = isset($_SESSION['user-' . get_current_user_id()]) ? $_SESSION['user-' . get_current_user_id()] : '';
 $id = get_the_ID();
 $itemCurrent = '';
 $contests = get_field('contests', $contestID);
 $dateCurrent = NpCommon::convertTimeZone("GMT", "Y-m-d H:i:s");
+$finished['code'] = 0;
+$arrRandomQuestion = json_decode($strRandomQuestion);
+
+$nextKey = 0;
+
 if (is_array($contests)) {
     foreach ($contests as $key => $item) {
         if ($item['id'] == $id && !empty($contestID)) {
             $itemCurrent = $key;
+            if (!empty($item['time_start']) && $item['visit']) {
+                $finished['code']=1;
+            }
             if (empty($item['time_start'])) {
                 $contests[$key]['time_start'] = $dateCurrent;
-                $contests[$key]['visit'] = true;
                 update_field('field_578072ac4a137', $contests, $contestID);
                 break;
             }
+            break;
+        }
+
+    }
+}
+if(is_array($arrRandomQuestion)){
+    foreach($arrRandomQuestion as $question_key => $questionId){
+        if(!$contests[$question_key]['visit']) {
+            $nextKey = $question_key;
             break;
         }
     }
@@ -32,6 +49,19 @@ $timeCurrent = strtotime($dateCurrent);
 $term = wp_get_post_terms(get_the_ID(), 'questionnaire');
 $termId = explode('questionnaire:', get_the_title($contestID))[1];
 $termName = get_term($termId, 'questionnaire')->name;
+$checkContestSession = merckquiz_checkUserContest(get_current_user_id(),$termId);
+
+if($checkContestSession['code']==1 && $checkContestSession['status'] !='pending'){
+    wp_redirect(home_url());
+    exit;
+}
+$linkNext='';
+if ($nextKey != 0 && $finished['code']==1) {
+    $linkNext =get_permalink($arrRandomQuestion[$nextKey]);
+    wp_redirect($linkNext);
+    exit;
+}
+
 ?>
 
 
@@ -56,8 +86,11 @@ $termName = get_term($termId, 'questionnaire')->name;
                             }
                             $questionNext = get_permalink($questions[$orderCurrent + 1]);
                             if (end($questions) == $id) {
-                                $questionNext = get_permalink(114).'?contest='.$contestID.'&questionnaire='.$termName;
+                                $questionNext = get_permalink(114) . '?contest=' . $contestID . '&questionnaire=' . $termName;
                             }
+                        }
+                        if(!empty($linkNext)){
+                            $questionNext = $linkNext;
                         }
                         ?>
                         <form class="form-contest" action="" method="post" data-next="<?php echo $questionNext ?>">
@@ -68,11 +101,11 @@ $termName = get_term($termId, 'questionnaire')->name;
                                 <input name="orderCurrent" type="hidden" value="<?php echo $orderCurrent ?>">
 
                                 <div class="question-name"><?php echo ($orderCurrent + 1) . '. ' . $question ?></div>
-                                <div class="question-image"><?php echo get_the_content()?></div>
+                                <div class="question-image"><?php echo get_the_content() ?></div>
                                 <div class="answer">
                                     <div class="row">
                                         <?php
-                                        if(merckquiz_countAnswerCorrect(get_the_ID())>1){
+                                        if (merckquiz_countAnswerCorrect(get_the_ID()) > 1) {
                                             foreach ($answer as $key => $item) {
                                                 ?>
                                                 <div class="col-sm-6 answer-item">
@@ -82,8 +115,7 @@ $termName = get_term($termId, 'questionnaire')->name;
                                                 </div>
                                                 <?php
                                             }
-                                        }
-                                        else {
+                                        } else {
                                             foreach ($answer as $key => $item) {
                                                 ?>
                                                 <div class="col-sm-6 answer-item">

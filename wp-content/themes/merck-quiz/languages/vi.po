@@ -1,0 +1,120 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: vi\n"
+"X-Generator: Poedit 1.8.7\n"
+
+msgid "Home"
+msgstr "Trang Chủ"
+
+msgid "Question"
+msgstr "Câu hỏi"
+
+msgid "Questionnaires"
+msgstr "Bộ câu hỏi"
+
+msgid "Contests Session"
+msgstr "Lượt thi"
+
+msgid "All Questions"
+msgstr "Tất cả các câu hỏi"
+
+msgid "Add New Question"
+msgstr "Thêm câu hỏi mới"
+
+msgid "All Contests Session"
+msgstr "Tất cả lượt thi"
+
+msgid "Add New Contests Session"
+msgstr "Thêm lượt thi mới"
+
+msgid "Repeater of Answers"
+msgstr "Tập hợp câu trả lời"
+
+msgid "Requires minimum 2 items"
+msgstr "Yêu cầu tối thiểu 2 điều"
+
+msgid "Time allowed"
+msgstr "Thời gian cho phép"
+
+msgid "In seconds, default to 60"
+msgstr "Trong khoảng, Mặc định là 60"
+
+msgid "Multi choices"
+msgstr "Nhiều sự lựa chọn"
+
+msgid "Author"
+msgstr "Tác giả"
+
+msgid "Add New Questionnaire"
+msgstr "Thêm bộ câu hỏi mới"
+
+msgid "Name"
+msgstr "Tên"
+
+msgid "The name is how it appears on your site"
+msgstr "Tên là cái xuất hiện trên trang web của bạn"
+
+msgid "Slug"
+msgstr "Biệt Danh"
+
+msgid "The “slug” is the URL-friendly version of the name. It is usually all lowercase and contains only letters, numbers, and hyphens"
+msgstr "Các \"Biệt danh\" là tên thường gọi của chúng. Nó thường là tất cả chữ thường và chỉ chứa các chữ cái, số, và dấu gạch nối"
+
+msgid "Parent"
+msgstr "Nguồn gốc"
+
+msgid "Description"
+msgstr "Miêu tả"
+
+msgid "User Group relation"
+msgstr "Sự gắn kết giữa các nhóm người dùng"
+
+msgid "Group"
+msgstr "Nhóm"
+
+msgid "View Result"
+msgstr "Xem Kết Quả"
+
+msgid "Only Admin can view results"
+msgstr "Chỉ có người quản trị được xem kết quả"
+
+msgid "Allow User to view result"
+msgstr "Cho phép người sử dụng xem kết quả"
+
+msgid "Add New Contest Session"
+msgstr "Thêm lượt thi mới"
+
+msgid "Enter title here"
+msgstr "Nhập tiêu đề ở đây"
+
+msgid "Contests"
+msgstr "Cuộc Thi"
+
+msgid "ID"
+msgstr "Tên"
+
+msgid "Answer"
+msgstr "Câu trả lời"
+
+msgid "Correct"
+msgstr "Đúng"
+
+msgid "Visit"
+msgstr "Lượt xem"
+
+msgid "Time Start"
+msgstr "Thời gian bắt đầu"
+
+msgid "Score"
+msgstr "Điểm"
+
+msgid "Unit"
+msgstr "Đơn vị"

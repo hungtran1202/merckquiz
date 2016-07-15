@@ -11,10 +11,10 @@ if ( ! function_exists( 'enpii_setup' ) ) :
     function enpii_setup() {
 
 
-        load_theme_textdomain( _NP_TEXT_DOMAIN, _NP_TEMPLATE_PATH . '/languages'. '/languages' );
+        load_theme_textdomain( _NP_TEXT_DOMAIN, _NP_TEMPLATE_PATH . '/languages' );
 
         $locale = get_locale();
-        $locale_file = TEMPLATEPATH . "/languages/".$locale.".php";
+        $locale_file = _NP_TEMPLATE_PATH . "/languages/".$locale.".php";
         if ( is_readable( $locale_file ) )
             require_once( $locale_file );
 

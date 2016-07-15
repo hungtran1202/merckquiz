@@ -23,9 +23,9 @@ $login = isset($_REQUEST['login']) ? $_REQUEST['login'] : '';
                 <div class="message-signup alert hidden"></div>
                 <form name="signup" id="signup2" method="post" class="signup">
                     <div class="form-group">
-                        <label for="email" class="hide">Email *</label>
+                        <label for="email" class="hide"><?php echo __('Email *', _NP_TEXT_DOMAIN)?></label>
                         <input name="email" type="email" class="form-control input-lg c-square" id="email"
-                               placeholder="Email *" >
+                               placeholder="<?php echo __('Email *', _NP_TEXT_DOMAIN)?>" >
                     </div>
                     <div class="form-group">
                         <label for="signup-username" class="hide"><?php echo __('Username *', _NP_TEXT_DOMAIN)?></label>

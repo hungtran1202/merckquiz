@@ -427,13 +427,13 @@ function merckquiz_checkUserContest($userId, $questionnaireId){
 function merckquiz_setSession($contestId){
     $_SESSION['contest-'.get_current_user_id()] = $contestId;
     $contests=get_field('contests', $contestId);
-    $argQuestionId = array();
+    $arrQuestionId = array();
     if(is_array($contests)){
         foreach($contests as $item){
-            $argQuestionId[]= $item['id'];
+            $arrQuestionId[]= $item['id'];
         }
     }
-    $_SESSION['user-'.get_current_user_id()] = $argQuestionId;
+    $_SESSION['user-'.get_current_user_id()] = json_encode($arrQuestionId);
 }
 
 /**

@@ -129,11 +129,12 @@ function merckquiz_ajaxContestSession()
     }
     $contests = get_field('contests',$contestID);
     $contests[$orderCurrent]['answer']= json_encode($argsAnswer);
+    $contests[$orderCurrent]['visit']= true;
     if(merckquiz_checkAnswer($argsAnswer, $questionId)){
         $contests[$orderCurrent]['correct']= true;
     }
     else{
-        $contests[$orderCurrent]['correct']= false;
+        $contests[$orderCurrent]['correct']= true;
     }
     update_field('field_578072ac4a137', $contests, $contestID);
     if(end($contests)['id']==$questionId){
